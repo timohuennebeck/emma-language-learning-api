@@ -1,0 +1,42 @@
+module.exports = [
+    {
+        id: 1,
+        first_name: "Timo",
+        last_name: "Huennebeck",
+        email: "hello@timohuennebeck.com",
+        image_url: "https://imgur.com/2iIgpXm",
+        role: "student",
+    },
+    {
+        id: 2,
+        first_name: "Jane",
+        last_name: "Doe",
+        email: "jane@example.com",
+        image_url: "https://imgur.com/2iIgpXm",
+        role: "student",
+    },
+    {
+        id: 3,
+        first_name: "John",
+        last_name: "Smith",
+        email: "john@example.com",
+        image_url: "https://imgur.com/2iIgpXm",
+        role: "teacher",
+    },
+    {
+        id: 4,
+        first_name: "Emilia",
+        last_name: "Johnson",
+        email: "emilia@example.com",
+        image_url: "https://imgur.com/2iIgpXm",
+        role: "teacher",
+    },
+    {
+        id: 5,
+        first_name: "Michael",
+        last_name: "Williams",
+        email: "michael@example.com",
+        image_url: "https://imgur.com/2iIgpXm",
+        role: "student",
+    },
+];
