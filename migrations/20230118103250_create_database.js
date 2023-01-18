@@ -30,6 +30,7 @@ exports.up = function (knex) {
                 .onUpdate("CASCADE")
                 .onDelete("CASCADE");
             table.string("rate_per_hour");
+            table.string("description");
         })
         .createTable("invitations", (table) => {
             table.increments("id").primary();

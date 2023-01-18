@@ -1,7 +1,10 @@
 const knex = require("knex")(require("../knexfile"));
 
 const getTeachers = (_req, res) => {
-    knex("teachers")
+    knex("users")
+        .innerJoin("teachers", "users.id", "teachers.users_id")
+        .select("*")
+        .where("users.role", "like", "%teacher%")
         .then((data) => {
             res.json(data);
         })
@@ -11,8 +14,11 @@ const getTeachers = (_req, res) => {
 };
 
 const getTeachersId = (req, res) => {
-    knex("teachers")
-        .where({ id: req.params.id })
+    knex("users")
+        .innerJoin("teachers", "users.id", "teachers.users_id")
+        .select("*")
+        .where("users.role", "like", "%teacher%")
+        .where("users.id", req.params.id)
         .then((data) => {
             res.json(data);
         })
