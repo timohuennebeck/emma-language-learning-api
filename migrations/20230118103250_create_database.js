@@ -117,11 +117,53 @@ exports.up = function (knex) {
             table.datetime("start_time").notNullable();
             table.datetime("end_time").notNullable();
             table.string("link");
+        })
+        .createTable("readings", (table) => {
+            table.increments("id");
+            table
+                .integer("users_id")
+                .unsigned()
+                .notNullable()
+                .references("id")
+                .inTable("users")
+                .onUpdate("CASCADE")
+                .onDelete("CASCADE");
+            table.string("name");
+            table.text("narrative");
+            table.string("level");
+            table.enu("language", ["English", "Spanish", "German", "French"]).notNullable();
+            table.string("image_url");
+            table.enu("status", ["Pending", "In Progress", "Finished"]).notNullable();
+        })
+        .createTable("dictionaries", (table) => {
+            table.increments("id");
+            table.string("name");
+            table.text("description");
+            table.integer("rating");
+            table.string("image_url");
+        })
+        .createTable("dictionaries_words", (table) => {
+            table.increments("id");
+            table
+                .integer("dictionaries_id")
+                .unsigned()
+                .notNullable()
+                .references("id")
+                .inTable("dictionaries")
+                .onUpdate("CASCADE")
+                .onDelete("CASCADE");
+            table.string("english");
+            table.string("foreign_translation");
+            table.enu("language", ["English", "Spanish", "German", "French"]).notNullable();
+            table.integer("level");
         });
 };
 
 exports.down = function (knex) {
     return knex.schema
+        .dropTable("dictionaries_words")
+        .dropTable("dictionaries")
+        .dropTable("readings")
         .dropTable("live_videos")
         .dropTable("reviews")
         .dropTable("lessons")

@@ -36,8 +36,17 @@ app.use("/lessons", lessonsRoutes);
 const reviewsRoutes = require("./routes/reviewsRoute");
 app.use("/reviews", reviewsRoutes);
 
-const liveVideos = require("./routes/liveVideosRoute");
-app.use("/live_videos", liveVideos);
+const liveVideosRoutes = require("./routes/liveVideosRoute");
+app.use("/live_videos", liveVideosRoutes);
+
+const readingsRoutes = require("./routes/readingsRoute");
+app.use("/readings", readingsRoutes);
+
+const dictionariesRoutes = require("./routes/dictionariesRoute");
+app.use("/dictionaries", dictionariesRoutes);
+
+const dictionariesWordsRoutes = require("./routes/dictionariesWordsRoute");
+app.use("/dictionaries_words", dictionariesWordsRoutes);
 
 // server
 

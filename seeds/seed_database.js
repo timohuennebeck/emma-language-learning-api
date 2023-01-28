@@ -5,6 +5,9 @@ const invitationsData = require("../seeds_data/invitations");
 const lessonsData = require("../seeds_data/lessons");
 const reviewsData = require("../seeds_data/reviews");
 const liveVideosData = require("../seeds_data/liveVideos");
+const readingsData = require("../seeds_data/readings.js");
+const dictionaries = require("../seeds_data/dictionaries");
+const dictionariesWords = require("../seeds_data/dictionariesWords");
 
 exports.seed = function (knex) {
     return knex("users")
@@ -47,5 +50,23 @@ exports.seed = function (knex) {
         })
         .then(() => {
             return knex("live_videos").insert(liveVideosData);
+        })
+        .then(() => {
+            return knex("readings").del();
+        })
+        .then(() => {
+            return knex("readings").insert(readingsData);
+        })
+        .then(() => {
+            return knex("dictionaries").del();
+        })
+        .then(() => {
+            return knex("dictionaries").insert(dictionaries);
+        })
+        .then(() => {
+            return knex("dictionaries_words").del();
+        })
+        .then(() => {
+            return knex("dictionaries_words").insert(dictionariesWords);
         });
 };
