@@ -55,4 +55,12 @@ module.exports = [
         language: "Spanish",
         level: 4,
     },
+    {
+        id: 8,
+        dictionaries_id: 4,
+        english: "group",
+        foreign_translation: "grupo",
+        language: "Spanish",
+        level: 2,
+    },
 ];
