@@ -141,6 +141,7 @@ exports.up = function (knex) {
             table.text("description");
             table.integer("rating");
             table.string("image_url");
+            table.enu("language", ["English", "Spanish", "German", "French"]).notNullable();
         })
         .createTable("dictionaries_words", (table) => {
             table.increments("id");
