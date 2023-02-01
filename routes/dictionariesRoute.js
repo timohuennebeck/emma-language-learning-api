@@ -3,9 +3,12 @@ const router = express.Router();
 
 const dictionariesController = require("../controllers/dictionariesController");
 
-router 
+router
     .route("/")
     .get(dictionariesController.getDictionaries)
 
+router
+    .route("/:id")
+    .get(dictionariesController.getDictionariesId);
 
 module.exports = router;

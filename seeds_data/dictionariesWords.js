@@ -5,7 +5,7 @@ module.exports = [
         english: "The House",
         foreign_translation: "La Casa",
         language: "Spanish",
-        level: 0,
+        level: 3,
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ module.exports = [
         english: "The Car",
         foreign_translation: "El Coche",
         language: "Spanish",
-        level: 0,
+        level: 2,
     },
     {
         id: 3,
