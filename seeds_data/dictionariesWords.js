@@ -85,7 +85,7 @@ module.exports = [
         english: "the lake",
         foreign_translation: "el largo",
         language: "Spanish",
-        level: 3,
+        level: 0,
     },
     {
         id: 12,
@@ -93,7 +93,7 @@ module.exports = [
         english: "the forest",
         foreign_translation: "el bosque",
         language: "Spanish",
-        level: 3,
+        level: 0,
     },
     {
         id: 13,

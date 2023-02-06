@@ -1,9 +1,11 @@
 require("dotenv").config();
 
-const express = require("express");
-const cors = require("cors");
+const { Configuration, OpenAIApi } = require("openai");
 
+const express = require("express");
 const app = express();
+
+const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
@@ -14,6 +16,32 @@ const PORT = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
     console.log("Welcome to the API!");
+});
+
+// implementing gpt3
+
+const configuration = new Configuration({
+    organization: "org-vICj9H8TZWjRiLX60K2AlsXb",
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
+
+// create a simple openai api call
+
+app.post("/openai", async (req, res) => {
+    const { message } = req.body;
+
+    const response = await openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: message,
+        max_tokens: 100,
+        temperature: 0.5,
+    });
+
+    res.json({
+        message: response.data.choices[0].text,
+    });
 });
 
 // routes
