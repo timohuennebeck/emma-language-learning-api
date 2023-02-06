@@ -36,8 +36,11 @@ app.post("/openai", async (req, res) => {
         const response = await openai.createCompletion({
             model: "text-curie-001",
             prompt: message,
-            max_tokens: 225,
-            temperature: 0.85,
+            temperature: 0.9,
+            max_tokens: 256,
+            top_p: 1,
+            frequency_penalty: 0.0,
+            presence_penalty: 0.6,
         });
 
         res.json({
