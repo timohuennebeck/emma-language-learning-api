@@ -32,16 +32,21 @@ const openai = new OpenAIApi(configuration);
 app.post("/openai", async (req, res) => {
     const { message } = req.body;
 
-    const response = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: message,
-        max_tokens: 100,
-        temperature: 0.7,
-    });
+    try {
+        const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: message,
+            max_tokens: 100,
+            temperature: 0.7,
+        });
 
-    res.json({
-        message: response.data.choices[0].text,
-    });
+        res.json({
+            message: response.data.choices[0].text,
+        });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ error: "There has been in error in getting the data from the API" });
+    }
 });
 
 // routes
