@@ -36,7 +36,7 @@ app.post("/openai", async (req, res) => {
         model: "text-davinci-003",
         prompt: message,
         max_tokens: 100,
-        temperature: 0.5,
+        temperature: 0.7,
     });
 
     res.json({
