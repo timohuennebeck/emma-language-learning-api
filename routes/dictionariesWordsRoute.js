@@ -6,6 +6,7 @@ const dictionariesWordsController = require("../controllers/dictionariesWordsCon
 router
     .route("/")
     .get(dictionariesWordsController.getDictionariesWords)
+    .put(dictionariesWordsController.updateDictionariesWords)
     .post(dictionariesWordsController.addDictionariesWords);
 
 module.exports = router;

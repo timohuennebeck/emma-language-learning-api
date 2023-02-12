@@ -31,6 +31,7 @@ exports.up = function (knex) {
                 .onDelete("CASCADE");
             table.string("rate_per_hour");
             table.string("description");
+            table.string("language");
         })
         .createTable("invitations", (table) => {
             table.increments("id").primary();

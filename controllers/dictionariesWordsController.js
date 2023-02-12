@@ -23,7 +23,22 @@ const addDictionariesWords = (req, res) => {
         });
 };
 
+const updateDictionariesWords = (req, res) => {
+    knex("dictionaries_words")
+        .where({ id: req.body.id })
+        .update(req.body)
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            res.status(400).json({
+                message: `Error adding Flashcard: ${req.body.english}! ${err}`,
+            });
+        });
+};
+
 module.exports = {
     getDictionariesWords,
     addDictionariesWords,
+    updateDictionariesWords,
 };
